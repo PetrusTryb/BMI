@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>BMI</title>
+	<!-- Materialize.css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Math -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css" integrity="sha384-zB1R0rpPzHqg7Kpt0Aljp8JPLqbXI3bhnPWROx27a9N0Ll6ZP/+DiW/UqRcLbRjq" crossorigin="anonymous">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js" integrity="sha384-y23I5Q6l+B6vatafAwxRu/0oK/79VlbSz7Q9aiSZUvyWYIYsd+qj+o24G5ZU2zJz" crossorigin="anonymous"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js" integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous"
+        onload="renderMathInElement(document.body);"></script>
+    <link rel="stylesheet" href="style.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+</head>
+<body>
+	<nav>
+    <div class="nav-wrapper red">
+      <a class="brand-logo flow-text"><i class="material-icons">directions_run</i>BMI</a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+      </ul>
+    </div>
+  </nav>
+  <main>
+     <div class="row">
+    <div class="col s12 m12">
+      <div class="card blue-grey darken-1">
+        <div class="card-content white-text">
+          <span class="card-title">Oblicz BMI</span>
+          <div class="row">
+        <div class="input-field col s6">
+          <input placeholder="Waga (kg)" id="weight" type="number" class="validate" min="1" max="500" autofocus="true">
+        </div>
+        <div class="input-field col s6">
+          <input placeholder="Wzrost (cm)" id="height" type="number" class="validate" min="1" max="500">
+        </div>
+        <output id="out"></output>
+        <div id="outInfo"></div>
+        <button class="btn" id="calc">Oblicz</button>
+      </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <ul class="collapsible">
+    <li>
+      <div class="collapsible-header"><i class="material-icons">info</i>Co to jest BMI?</div>
+      <div class="collapsible-body"><span>BMI - <i>body mass index</i> - wskaźnik masy ciała, pozwalający sprawdzić, czy nasza masa ciała jest prawidłowa. 
+      	<br>Został opracowany w 1832 r. przez belgijskiego matematyka Adolfa Queteleta.<br/>Pośrednio informuje o ilości tkanki tłuszczowej w organizmie.
+      </span></div>
+    </li>
+    <li>
+      <div class="collapsible-header"><i class="material-icons">computer</i>Jak obliczyć BMI?</div>
+      <div class="collapsible-body"><span>Obliczenie BMI jest bardzo proste - wystarczy podzielić swoją masę w kilogramach przez swój wzrost wyrażony w metrach podniesiony do kwadratu: $$BMI=\frac{masa [kg]}{wzrost [m]^2}$$</span></div>
+    </li>
+    <li>
+      <div class="collapsible-header"><i class="material-icons">healing</i>Jaki jest związek między BMI a zdrowiem?</div>
+      <div class="collapsible-body"><span>BMI informuje o zawartości tkanki tłuszczowej w organizmie. Ma znaczenie w ocenie zagrożenia chorobami związanymi z nadwagą i otyłością, np. cukrzycą, chorobą niedokrwienną serca, miażdżycą. Wysoka wartość BMI może zwiastować problemy zdrowotne.</span></div>
+    </li>
+    <li>
+      <div class="collapsible-header"><i class="material-icons">check</i>Jakie powinno być moje BMI?</div>
+      <div class="collapsible-body"><span>Norma BMI dla osoby dorosłej to od 18,5 do 25.<br/>Jeśli BMI jest poniżej tej normy, mówimy o niedowadze, natomiast jeśli jest powyżej - o nadwadze.<br/>BMI powyżej 30 wskazuje na otyłość oraz zwiększone ryzyko problemów ze zdrowiem.<br/>
+      	<table>
+        <thead>
+          <tr>
+              <th>Wartość BMI</th>
+              <th>Opis</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr>
+            <td><16,0</td>
+            <td>Skrajne wychudzenie</td>
+          </tr>
+          <tr>
+            <td>16,0-16,99</td>
+            <td>Wychudzenie</td>
+          </tr>
+          <tr>
+            <td>17,0–18,49</td>
+            <td>Niedowaga</td>
+          </tr>
+          <tr>
+            <td>18,5–24,99</td>
+            <td>Prawidłowa masa ciała</td>
+          </tr>
+          <tr>
+            <td>25,0–29,99</td>
+            <td>Nadwaga</td>
+          </tr>
+          <tr>
+            <td>30,0–34,99</td>
+            <td>Otyłość</td>
+          </tr>
+          <tr>
+            <td>35,0–39,99</td>
+            <td>Znaczna otyłość</td>
+          </tr>
+          <tr>
+            <td>>40,0</td>
+            <td>Chorobliwa otyłość</td>
+          </tr>
+        </tbody>
+      </table>
+      </span></div>
+    </li>
+    <li>
+      <div class="collapsible-header"><i class="material-icons">fitness_center</i>Jak mogę poprawić swój wskaźnik BMI?</div>
+      <div class="collapsible-body"><span>Przede wszystkim zwiększ ilość aktywności fizycznej.<br/>Po drugie, zmień swoją dietę - jedz więcej warzyw i owoców, a mniej słodyczy.<br/>Ogranicz ilość stresu oraz zapewnij sobie odpowiednią ilośc snu.</span></div>
+    </li>
+  </ul></main>
+  <footer class="red">
+  	<div class="row">
+              <div class="col l6 s12">
+                <h5 class="white-text">Kalkulator BMI</h5>
+                <p class="grey-text text-lighten-4">Źródło informacji: Wikipedia<br/>
+                Dane wprowadzone na tej stronie nie są przesyłane na żaden serwer i pozostają prywatne.
+                </p>
+              </div>
+    </div>
+  	<div class="footer-copyright red darken-4">
+  		<br/>
+            <div class="container grey-text text-lighten-4">
+            © 2020 Piotr Trybisz 1bg
+            <a class="grey-text text-lighten-4 right" href="https://github.com/PetrusTryb/BMI" target="_blank">Kod źródłowy</a>
+            </div>
+            <br/>
+          </div>
+  </footer>
+  <script>
+  	M.AutoInit();
+  	document.getElementById("calc").onclick=function(){
+  		let weight=document.getElementById("weight").value;
+  		let height=document.getElementById("height").value;
+  		let BMI=(weight/Math.pow(height/100,2)).toFixed(2);
+  		if(isNaN(BMI)){
+  			document.getElementById("out").value="Wprowadzono nieprawidłowe dane.";
+  			return;
+  		}
+  		document.getElementById("out").value="Twój wskaźnik BMI wynosi: "+BMI;
+  		if(BMI<16.0)
+  			document.getElementById("outInfo").innerHTML="<i class='material-icons'>battery_alert</i> Skrajne wychudzenie";
+  		else if(BMI<16.99)
+  			document.getElementById("outInfo").innerHTML="<i class='material-icons'>compare_arrows</i> Wychudzenie";
+  		else if(BMI<18.49)
+  			document.getElementById("outInfo").innerHTML="<i class='material-icons'>sentiment_satisfied</i> Niedowaga";
+  		else if(BMI<24.99)
+  			document.getElementById("outInfo").innerHTML="<i class='material-icons'>sentiment_very_satisfied</i> Prawidłowa masa ciała - gratulacje!";
+  		else if(BMI<29.99)
+  			document.getElementById("outInfo").innerHTML="<i class='material-icons'>sentiment_dissatisfied</i> Nadwaga";
+  		else if(BMI<34.99)
+  			document.getElementById("outInfo").innerHTML="<i class='material-icons'>sentiment_very_dissatisfied</i> Otyłość";
+  		else if(BMI<39.99)
+  			document.getElementById("outInfo").innerHTML="<i class='material-icons'>pregnant_woman</i> Znaczna otyłość";
+  		else
+  			document.getElementById("outInfo").innerHTML="<i class='material-icons'>warning</i> Chorobliwa otyłość";
+  	}
+</script>
+</body>
+</html>

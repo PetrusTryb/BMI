@@ -1,0 +1,14 @@
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+    background-image: url("background.jpg");
+    background-attachment: fixed;
+    background-size: cover;
+  }
+
+  main {
+    flex: 1 0 auto;
+    opacity: 0.95;
+    background-color: white;
+  }
