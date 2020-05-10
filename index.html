@@ -31,10 +31,10 @@
           <span class="card-title">Oblicz BMI</span>
           <div class="row">
         <div class="input-field col s6">
-          <input placeholder="Waga (kg)" id="weight" type="number" class="validate" min="1" max="500" autofocus="true">
+          <input placeholder="Waga (kg)" id="weight" type="number" class="validate" min="1" max="500" step="0.1" autofocus="true">
         </div>
         <div class="input-field col s6">
-          <input placeholder="Wzrost (cm)" id="height" type="number" class="validate" min="1" max="500">
+          <input placeholder="Wzrost (cm)" id="height" type="number" class="validate" min="1" max="500" step="0.1">
         </div>
         <output id="out"></output>
         <div id="outInfo"></div>
@@ -138,6 +138,7 @@
   		let BMI=(weight/Math.pow(height/100,2)).toFixed(2);
   		if(isNaN(BMI)){
   			document.getElementById("out").value="Wprowadzono nieprawidłowe dane.";
+  			document.getElementById("outInfo").innerHTML="";
   			return;
   		}
   		document.getElementById("out").value="Twój wskaźnik BMI wynosi: "+BMI;
